@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style1.css" type="text/css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+let tg = window.Telegram.WebApp;
+tg.expand();
+
+function butclick() {
+  let input = document.getElementById("input");
+  let text = document.getElementById("area");
+  let but = document.getElementById("copy");
+  let sendb = document.getElementById("send");
+  let conf = document.getElementById("conf");
+  let value = input.value;
+  let reversedText = value.split('').reverse().join('');
+  text.innerText = reversedText;
+  if (/^\s+$/.test(reversedText)) {
+    sendb.style.display = 'none';
+    } else {
+    if (reversedText != ''){
+        sendb.style.display = 'block';
+    };
+    };
+  if (reversedText != ''){
+    but.style.display = 'block';
+
+    conf.style.transition = 'none';
+    conf.style.top = '400px';
+    setTimeout(function() {
+        conf.style.transition = '.2s linear';
+    }, 100);
+
+  } else{
+    but.style.display = 'none';
+    sendb.style.display = 'none';
+    conf.style.transition = 'none';
+    conf.style.top = '345px';
+    setTimeout(function() {
+        conf.style.transition = '.2s linear';
+    }, 100);
+  };
+};
+
+function copytext() {
+  const textarea = document.getElementById("area");
+  textarea.select();
+  document.execCommand('copy');
+};
+
+
+
+
+
+function sends() {
+  let input = document.getElementById("area");
+  let value = input.value;
+  let reversedText = value;
+  tg.sendData(reversedText);
+<!--  let bob = document.getElementById("send");-->
+<!--  bob.innerText = reversedText;-->
+};
+    </script>
+</head>
+<body>
+  <div class="container">
+      <div class="inner">
+          <div class="item">
+            <input id="input" type="text" placeholder="Text to reverse">
+          </div>
+          <div class="item">
+            <p>Reversed text:</p>
+          </div>
+          <div class="item">
+            <button onclick="copytext()" id="copy" class="newbut">Copy</button>
+          </div>
+          <div class="item">
+            <button id="conf" class="but" onclick="butclick()">Confim</button>
+          </div>
+          <div class="item">
+            <textarea readonly id="area">Reversed text</textarea>
+          </div>
+          <div class="item">
+            <button class="tgbut" id="send" onclick="sends()">Send text to bot</button>
+          </div>
+          <div class="item">
+              <a href="index.html"><img class="imgs" src="back.svg"></a>
+          </div>
+          <div class="item">
+            <img src="backc.svg">
+          </div>
+      </div>
+  </div>
+</body>
+</html>
