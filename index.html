@@ -4,6 +4,20 @@
     <meta charset="UTF-8">
     <title>SimpleFuncAi Menu</title>
     <link rel="stylesheet" href="style.css" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $("a").click(function(event) {
+          event.preventDefault();
+          var href = $(this).attr("href");
+          $.ajax({
+            url: href,
+            success: function(data) {
+              $("#content").html(data);
+            }
+          });
+        });
+      });
     <script>
 function goto() {
     location.href = "index_reverse.html";
@@ -14,8 +28,8 @@ function goto() {
     <div class="container">
         <div class="item">
             <h3 class="hh">SimpleFuncAi Menu</h3>
-            <p class="qu">Quickly accessible functions:</p>
-            <button onclick="goto()" class="btnreverse">Reverse text</button>
+            <p class="qu">Quickly accessible functions::</p>
+            <a href="index_reverse.html"><button class="btnreverse">Reverse text</button></a>
         </div>
     </div>
 </body>
