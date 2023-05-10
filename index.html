@@ -2,36 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>SimpleFuncAi Menu</title>
-    <link rel="stylesheet" href="style.css" type="text/css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-      $(document).ready(function() {
-        $("a").click(function(event) {
-          event.preventDefault();
-          var href = $(this).attr("href");
-          $.ajax({
-            url: href,
-            success: function(data) {
-              $("#content").html(data);
-            }
-          });
-        });
-      });
-    <script>
-function goto() {
-    location.href = "index_reverse.html";
+    <title>SimpleFuncAi</title>
+    <style>
+body{
+    overflow: hidden;
 }
-    </script>
+iframe{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+    </style>
 </head>
 <body>
-    <div class="container">
-        <div class="item">
-            <h3 class="hh">SimpleFuncAi Menu</h3>
-            <p class="qu">Quickly accessible functions::</p>
-            <a href="index_reverse.html"><button class="btnreverse">Reverse text</button></a>
-            <iframe src="index_reverse.html" style="height:100%; width:100%; margin:0; padding:0;"></iframe>
-        </div>
-    </div>
+    <iframe src="index_main.html" frameborder="0"></iframe>
 </body>
 </html>
