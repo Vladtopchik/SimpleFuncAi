@@ -63,6 +63,9 @@ function sends() {
 <!--  let bob = document.getElementById("send");-->
 <!--  bob.innerText = reversedText;-->
 };
+function goto() {
+    location.replace("index.html");
+};
     </script>
 </head>
 <body>
@@ -87,7 +90,7 @@ function sends() {
             <button class="tgbut" id="send" onclick="sends()">Send text to bot</button>
           </div>
           <div class="item">
-              <a href="index.html"><img class="imgs" src="back.svg"></a>
+              <img onclick="goto()" class="imgs" src="back.svg">
           </div>
           <div class="item">
             <img src="backc.svg">
